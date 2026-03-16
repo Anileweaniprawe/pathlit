@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clarity Pro Report — Your Personalised Career Blueprint | Pathlit</title>
+    <meta name="description" content="Get your 15-page personalised career report: 3 career paths, strengths deep-dive, values map, and 30-day action plan. $9.99 one-time. 14-day money-back guarantee.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500&family=Syne:wght@600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="pathlit.css">
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">PATHLIT</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="quiz.html" class="nav-link">Quiz</a>
+                <a href="archetypes.html" class="nav-link">Archetypes</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="clarity-pro.html" class="nav-link active">Pricing</a>
+            </div>
+            <a href="quiz.html" class="nav-cta">Take the Free Quiz</a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html" class="mobile-link">Home</a>
+            <a href="quiz.html" class="mobile-link">Quiz</a>
+            <a href="archetypes.html" class="mobile-link">Archetypes</a>
+            <a href="about.html" class="mobile-link">About</a>
+            <a href="clarity-pro.html" class="mobile-link active">Pricing</a>
+            <a href="#buy" class="mobile-cta">Get Full Report — $9.99</a>
+        </div>
+    </nav>
+
+    <div class="mobile-sticky-cta">
+        <button class="btn btn-primary btn-full" onclick="openPaymentModal()">Get Your Full Report — $9.99</button>
+    </div>
+
+    <!-- Sales Hero -->
+    <section class="sales-hero">
+        <div class="gradient-blob blob-1"></div>
+        <div class="gradient-blob blob-2"></div>
+        <div class="container">
+            <div class="hero-tags">
+                <span class="tag"># Clarity Pro</span>
+                <span class="tag"># $9.99</span>
+            </div>
+            <h1>You saw your archetype.<br>But you only saw 20%<br>of the picture.</h1>
+            <p class="sales-hero-sub">Your free result showed you WHO you are.<br>Your Clarity Pro report shows you WHAT TO DO about it.</p>
+            <button class="btn btn-primary btn-lg" onclick="openPaymentModal()">Get Your Full Report — $9.99</button>
+        </div>
+    </section>
+
+    <!-- Agitation -->
+    <section class="agitation">
+        <div class="container container-narrow">
+            <p class="agitation-lead">Here's what happens to most people after they see their free result:</p>
+            <p>They screenshot it. They share it. They feel a spark of recognition: "That's me."</p>
+            <p>And then... nothing changes.</p>
+            <p>Because knowing your archetype isn't the same as knowing what to do with it. Your free result is a compass heading. Your Clarity Pro report is the full GPS — with turn-by-turn directions.</p>
+            <p>Without it, you're back to scrolling job boards at midnight, wondering why nothing feels right. <strong>With it</strong>, you have 3 specific career paths, a strengths deep-dive, a values alignment map, and a 30-day action plan — all personalised to YOUR results.</p>
+        </div>
+    </section>
+
+    <!-- What's Inside -->
+    <section class="whats-inside">
+        <div class="gradient-blob blob-4"></div>
+        <div class="container">
+            <h2 class="section-title">What's Inside Your Clarity Pro Report</h2>
+            <p class="section-subtitle">Your personalised 15-page report includes:</p>
+            <div class="features-grid">
+                <div class="glass-panel feature-item">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Your Life Direction Archetype — full breakdown, not just the summary</span>
+                </div>
+                <div class="glass-panel feature-item">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Personality Deep-Dive: your Big Five profile with real-world implications</span>
+                </div>
+                <div class="glass-panel feature-item">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Strengths Map: your top 5 strengths ranked and explained</span>
+                </div>
+                <div class="glass-panel feature-item">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Values Alignment: what actually matters to you (and what doesn't)</span>
+                </div>
+                <div class="glass-panel feature-item">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>3 Career Paths: specific roles matched to your unique blueprint</span>
+                </div>
+                <div class="glass-panel feature-item">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Industry Match: which sectors align with your profile</span>
+                </div>
+                <div class="glass-panel feature-item">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>30-Day Action Plan: week-by-week steps to move from stuck to clear</span>
+                </div>
+                <div class="glass-panel feature-item">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Resource List: courses, communities, and tools for each career path</span>
+                </div>
+                <div class="glass-panel feature-item">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Shareable Summary Card: designed for LinkedIn/Instagram</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Price Comparison -->
+    <section class="price-comparison">
+        <div class="container">
+            <h2 class="section-title">How Clarity Pro Compares</h2>
+            <div class="glass-panel comparison-table">
+                <div class="comparison-row comparison-header">
+                    <span>Option</span>
+                    <span>Price</span>
+                    <span>What You Get</span>
+                </div>
+                <div class="comparison-row">
+                    <span>Career coaching session</span>
+                    <span class="comparison-price">$150–300</span>
+                    <span>1 hour of general advice</span>
+                </div>
+                <div class="comparison-row">
+                    <span>BetterUp subscription</span>
+                    <span class="comparison-price">$300+/mo</span>
+                    <span>Generic coaching platform</span>
+                </div>
+                <div class="comparison-row">
+                    <span>University career centre</span>
+                    <span class="comparison-price">Free (waitlist)</span>
+                    <span>15-min appointment, generic handouts</span>
+                </div>
+                <div class="comparison-row comparison-highlight">
+                    <span><strong>Pathlit Clarity Pro</strong></span>
+                    <span class="comparison-price highlight-price">$9.99</span>
+                    <span>15-page personalised report + 3 career paths + 30-day plan + lifetime access</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sales Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="testimonials-grid">
+                <div class="glass-panel testimonial-card">
+                    <p class="testimonial-quote">"I was 2 weeks away from accepting a job I didn't want. My Clarity Pro report showed me a path I hadn't even considered. I'm now applying to roles that actually excite me."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div>
+                            <span class="author-name">Marta, 24</span>
+                            <span class="author-role">Recent Graduate</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-panel testimonial-card">
+                    <p class="testimonial-quote">"$9.99 for something that would have taken me 6 months of therapy to figure out. Best money I've spent this year."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">T</div>
+                        <div>
+                            <span class="author-name">Tom, 27</span>
+                            <span class="author-role">Career Changer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-panel testimonial-card">
+                    <p class="testimonial-quote">"The action plan alone is worth it. Finally, someone told me WHAT TO DO instead of just WHO I AM."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">P</div>
+                        <div>
+                            <span class="author-name">Priya, 21</span>
+                            <span class="author-role">Student</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container container-narrow">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item glass-panel">
+                    <button class="faq-question">
+                        Is the quiz really free?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. The quiz and your basic archetype result are 100% free, no email required. Clarity Pro ($9.99) is the optional deep-dive report.</p>
+                    </div>
+                </div>
+                <div class="faq-item glass-panel">
+                    <button class="faq-question">
+                        What if I don't like my report?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Full refund within 14 days, no questions asked. Email hello@pathlit.app and we'll process it same day.</p>
+                    </div>
+                </div>
+                <div class="faq-item glass-panel">
+                    <button class="faq-question">
+                        How is this different from 16Personalities?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>16Personalities gives you a label. Pathlit gives you a label + strengths analysis + values map + 3 career paths + a 30-day action plan. All integrated, all personalised.</p>
+                    </div>
+                </div>
+                <div class="faq-item glass-panel">
+                    <button class="faq-question">
+                        Do I need to retake the quiz?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No. Your Clarity Pro report is generated from the quiz you already completed. Just click "Get Report" and it's instant.</p>
+                    </div>
+                </div>
+                <div class="faq-item glass-panel">
+                    <button class="faq-question">
+                        Is my data safe?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. We don't sell data. Period. Your results are encrypted and only visible to you. We're GDPR compliant.</p>
+                    </div>
+                </div>
+                <div class="faq-item glass-panel">
+                    <button class="faq-question">
+                        Can I share my report?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! Every report includes a shareable summary card designed for LinkedIn and Instagram.</p>
+                    </div>
+                </div>
+                <div class="faq-item glass-panel">
+                    <button class="faq-question">
+                        What if I'm not in my 20s?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Pathlit is optimised for ages 18-30 but works for anyone in a career transition. The career paths and action plans are relevant at any age.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section id="buy" class="sales-final-cta">
+        <div class="gradient-blob blob-6"></div>
+        <div class="container">
+            <div class="guarantee-badge glass-panel">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>14-Day Money-Back Guarantee</span>
+            </div>
+            <p class="guarantee-text">If your Clarity Pro report doesn't give you at least one "aha" moment, email us and get a full refund. No forms. No friction.</p>
+            <h2>You already know who you are.<br>Now find out what to do about it.</h2>
+            <button class="btn btn-glow btn-lg" onclick="openPaymentModal()">Get Your Full Report — $9.99</button>
+            <div class="payment-trust">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span>Secure payment via Stripe &bull; Instant PDF delivery &bull; Lifetime access</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">PATHLIT</div>
+                    <p class="footer-tagline">Your path, lit.</p>
+                    <p class="footer-email">hello@pathlit.app</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="quiz.html">Take the Quiz</a>
+                    <a href="archetypes.html">Archetypes</a>
+                    <a href="about.html">About</a>
+                    <a href="clarity-pro.html">Pricing</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Social</h4>
+                    <div class="footer-social">
+                        <a href="#" aria-label="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
+                        <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                        <a href="#" aria-label="Twitter/X"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Pathlit. Built with love for people who refuse to stay lost.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Payment Modal -->
+    <div class="payment-overlay" id="paymentOverlay">
+        <div class="payment-modal glass-panel">
+            <button class="payment-close" id="paymentClose" aria-label="Close">&times;</button>
+
+            <div class="payment-modal-header">
+                <div class="payment-product">
+                    <span class="payment-product-label">Clarity Pro Report</span>
+                    <span class="payment-product-price">$9.99</span>
+                </div>
+                <p class="payment-product-desc">15-page personalised PDF &bull; 3 career paths &bull; 30-day plan</p>
+            </div>
+
+            <div class="payment-form" id="paymentForm">
+                <div class="payment-field">
+                    <label for="payEmail">Email address</label>
+                    <input type="email" id="payEmail" placeholder="your@email.com" required>
+                    <span class="payment-field-hint">Your report will be delivered here</span>
+                </div>
+
+                <div class="payment-card-section">
+                    <label>Card details</label>
+                    <div class="payment-card-element" id="cardElement">
+                        <!-- Stripe Card Element mounts here -->
+                    </div>
+                    <div class="payment-card-error" id="cardError"></div>
+                </div>
+
+                <button class="btn btn-glow btn-lg btn-full" id="payButton" type="button">
+                    <span id="payBtnText">Pay $9.99</span>
+                    <span id="payBtnSpinner" class="pay-spinner" style="display:none;"></span>
+                </button>
+
+                <div class="payment-footer">
+                    <div class="payment-trust-row">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <span>Secured by Stripe</span>
+                    </div>
+                    <div class="payment-trust-row">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        <span>14-day money-back guarantee</span>
+                    </div>
+                    <div class="payment-methods">
+                        <span class="pm-badge">Visa</span>
+                        <span class="pm-badge">Mastercard</span>
+                        <span class="pm-badge">Amex</span>
+                        <span class="pm-badge">Apple Pay</span>
+                        <span class="pm-badge">Google Pay</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="pathlit.js"></script>
+    <script>
+    // ==========================================
+    //  STRIPE PAYMENT INTEGRATION
+    // ==========================================
+    //
+    //  HOW TO CONFIGURE:
+    //  1. Replace STRIPE_PUBLISHABLE_KEY with your real Stripe publishable key
+    //  2. Create a Stripe Payment Intent endpoint on your backend
+    //  3. Replace the /api/create-payment-intent URL below
+    //  4. Set up a webhook to deliver the PDF on successful payment
+    //
+    //  For a no-code approach, replace this entire script with a
+    //  Stripe Payment Link: https://stripe.com/docs/payment-links
+    //
+
+    const CHECKOUT_API_URL = '/api/create-checkout-session';
+
+    let stripe;
+
+    // Initialize Stripe (lazy)
+    function initStripe() {
+        if (stripe) return;
+        try {
+            // Stripe.js loads from the <script> tag in <head>
+            stripe = Stripe(window.STRIPE_PK || 'pk_test_YOUR_KEY_HERE');
+        } catch (e) {
+            console.log('Stripe.js not loaded — checkout will use server-side redirect.');
+        }
+    }
+
+    // Open/close modal
+    function openPaymentModal() {
+        document.getElementById('paymentOverlay').classList.add('open');
+        document.body.style.overflow = 'hidden';
+        initStripe();
+    }
+
+    function closePaymentModal() {
+        document.getElementById('paymentOverlay').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    document.getElementById('paymentClose').addEventListener('click', closePaymentModal);
+    document.getElementById('paymentOverlay').addEventListener('click', (e) => {
+        if (e.target === e.currentTarget) closePaymentModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closePaymentModal();
+    });
+
+    // Payment handler — Stripe Checkout redirect flow
+    document.getElementById('payButton').addEventListener('click', async () => {
+        const email = document.getElementById('payEmail').value.trim();
+        if (!email || !email.includes('@')) {
+            document.getElementById('cardError').textContent = 'Please enter a valid email address.';
+            return;
+        }
+
+        const btnText = document.getElementById('payBtnText');
+        const btnSpinner = document.getElementById('payBtnSpinner');
+        const payBtn = document.getElementById('payButton');
+
+        payBtn.disabled = true;
+        btnText.textContent = 'Redirecting...';
+        btnSpinner.style.display = 'inline-block';
+        document.getElementById('cardError').textContent = '';
+
+        try {
+            // Get quiz result ID from localStorage (saved after quiz completion)
+            const quizId = localStorage.getItem('pathlit_quiz_id') || '';
+
+            const response = await fetch(CHECKOUT_API_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, quizId })
+            });
+
+            const data = await response.json();
+
+            if (data.error) {
+                document.getElementById('cardError').textContent = data.error;
+                return;
+            }
+
+            // Demo mode — server returns demo flag when Stripe isn't configured
+            if (data.demo) {
+                localStorage.setItem('pathlit_paid', 'true');
+                localStorage.setItem('pathlit_email', email);
+                window.location.href = 'success.html';
+                return;
+            }
+
+            // Real Stripe — redirect to Checkout
+            if (stripe && data.sessionId) {
+                const { error } = await stripe.redirectToCheckout({ sessionId: data.sessionId });
+                if (error) {
+                    document.getElementById('cardError').textContent = error.message;
+                }
+            } else {
+                document.getElementById('cardError').textContent = 'Payment service unavailable. Please try again.';
+            }
+
+        } catch (err) {
+            document.getElementById('cardError').textContent = 'Payment failed. Please try again.';
+        } finally {
+            payBtn.disabled = false;
+            btnText.textContent = 'Pay $9.99';
+            btnSpinner.style.display = 'none';
+        }
+    });
+    </script>
+</body>
+</html>

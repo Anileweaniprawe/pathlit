@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pathlit — Free Career Quiz for Gen Z | Find Your Path in 8 Minutes</title>
+    <meta name="description" content="Feeling lost about your career? Pathlit's free 8-minute quiz maps your personality, strengths, and values to 3 career paths. Built for ages 18–30. No email required.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500&family=Syne:wght@600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="pathlit.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">PATHLIT</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="quiz.html" class="nav-link">Quiz</a>
+                <a href="archetypes.html" class="nav-link">Archetypes</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="clarity-pro.html" class="nav-link">Pricing</a>
+            </div>
+            <a href="quiz.html" class="nav-cta">Take the Free Quiz</a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html" class="mobile-link active">Home</a>
+            <a href="quiz.html" class="mobile-link">Quiz</a>
+            <a href="archetypes.html" class="mobile-link">Archetypes</a>
+            <a href="about.html" class="mobile-link">About</a>
+            <a href="clarity-pro.html" class="mobile-link">Pricing</a>
+            <a href="quiz.html" class="mobile-cta">Take the Free Quiz</a>
+        </div>
+    </nav>
+
+    <!-- Mobile sticky CTA -->
+    <div class="mobile-sticky-cta">
+        <a href="quiz.html" class="btn btn-primary btn-full">Take the Free Quiz</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="gradient-blob blob-1"></div>
+        <div class="gradient-blob blob-2"></div>
+        <div class="gradient-blob blob-3"></div>
+
+        <div class="hero-content">
+            <div class="hero-tags">
+                <span class="tag"># career</span>
+                <span class="tag"># clarity</span>
+                <span class="tag"># GenZ</span>
+            </div>
+            <h1 class="hero-headline">You're not lost.</h1>
+            <p class="hero-headline-sub">You just haven't seen the map yet.</p>
+            <p class="hero-sub">Pathlit maps your personality, strengths, and values to career paths that actually fit your life. 8 minutes. Free. No email required.</p>
+            <a href="quiz.html" class="btn btn-primary btn-lg">Get Clear in 8 Minutes — Free</a>
+            <div class="hero-proof">
+                <div class="proof-pill">
+                    <span class="proof-dot"></span>
+                    200+ people finding their path
+                </div>
+                <div class="proof-pill">
+                    <span class="proof-star">&#9733;</span>
+                    4.8/5 avg rating
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating glass cards -->
+        <div class="floating-cards">
+            <div class="glass-card float-card-1">
+                <span class="card-label">Your Archetype</span>
+                <span class="card-value">The Explorer</span>
+            </div>
+            <div class="glass-card float-card-2">
+                <span class="card-label">Match Score</span>
+                <span class="card-value-big">94%</span>
+            </div>
+            <div class="glass-card float-card-3">
+                <span class="card-label">Career Paths</span>
+                <span class="card-value">3 found</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <div class="benefits-grid">
+                <div class="glass-panel benefit-card">
+                    <div class="benefit-icon-wrap">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+                    </div>
+                    <h3>Not Another Label</h3>
+                    <p>Pathlit maps 4 dimensions — personality, strengths, values, and career fit — into one integrated blueprint.</p>
+                </div>
+                <div class="glass-panel benefit-card">
+                    <div class="benefit-icon-wrap">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    </div>
+                    <h3>8 Minutes to Clarity</h3>
+                    <p>One quiz. One result. Three specific career paths that match who you actually are.</p>
+                </div>
+                <div class="glass-panel benefit-card">
+                    <div class="benefit-icon-wrap">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                    </div>
+                    <h3>Action, Not Just Answers</h3>
+                    <p>Every result comes with a 30-day action plan. Actual steps you can take this week.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps-grid">
+                <div class="step-card glass-panel">
+                    <div class="step-number">01</div>
+                    <h3>Take the Quiz</h3>
+                    <span class="step-tag"># 8 minutes</span>
+                    <p>Answer questions about your personality, strengths, and values. No right answers. No wrong answers. Just honest ones.</p>
+                </div>
+                <div class="step-card glass-panel">
+                    <div class="step-number">02</div>
+                    <h3>Get Your Archetype</h3>
+                    <span class="step-tag"># instant</span>
+                    <p>Discover your Life Direction Archetype — a map of who you are and what drives you. Share it, screenshot it, frame it.</p>
+                </div>
+                <div class="step-card glass-panel">
+                    <div class="step-number">03</div>
+                    <h3>See Your Paths</h3>
+                    <span class="step-tag"># actionable</span>
+                    <p>Get 3 career paths matched to your unique blueprint. Plus a 30-day action plan to actually move forward.</p>
+                </div>
+            </div>
+            <div class="steps-cta">
+                <a href="quiz.html" class="btn btn-primary btn-lg">Start the Quiz — It's Free</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="gradient-blob blob-4"></div>
+        <div class="gradient-blob blob-5"></div>
+        <div class="container">
+            <h2 class="section-title">What People Are Saying</h2>
+            <div class="testimonials-grid">
+                <div class="glass-panel testimonial-card">
+                    <p class="testimonial-quote">"I've taken every personality test on the internet. Pathlit is the first one that actually told me what to DO next. I changed my major within a week."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">S</div>
+                        <div>
+                            <span class="author-name">Sara, 22</span>
+                            <span class="author-role">University Student</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-panel testimonial-card">
+                    <p class="testimonial-quote">"I was stuck between 3 career options for months. Pathlit didn't just confirm what I already knew — it showed me a path I hadn't even considered."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">J</div>
+                        <div>
+                            <span class="author-name">Jakub, 26</span>
+                            <span class="author-role">Career Changer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-panel testimonial-card">
+                    <p class="testimonial-quote">"Finally, something built for people like me. Not corporate. Not vague. Specific."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div>
+                            <span class="author-name">Amara, 19</span>
+                            <span class="author-role">Figuring It Out</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="gradient-blob blob-6"></div>
+        <div class="container">
+            <h2>Still scrolling?</h2>
+            <p>That's 30 seconds you could've spent getting clear.</p>
+            <a href="quiz.html" class="btn btn-glow btn-lg">Take the Free Quiz Now</a>
+            <p class="final-cta-sub">8 minutes. Zero risk. Your path, lit.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">PATHLIT</div>
+                    <p class="footer-tagline">Your path, lit.</p>
+                    <p class="footer-email">hello@pathlit.app</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="quiz.html">Take the Quiz</a>
+                    <a href="archetypes.html">Archetypes</a>
+                    <a href="about.html">About</a>
+                    <a href="clarity-pro.html">Pricing</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Social</h4>
+                    <div class="footer-social">
+                        <a href="#" aria-label="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
+                        <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                        <a href="#" aria-label="Twitter/X"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Pathlit. Built with love for people who refuse to stay lost.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="pathlit.js"></script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take the Quiz — Pathlit | Find Your Career Path in 8 Minutes</title>
+    <meta name="description" content="40 science-backed questions. 8 minutes. Discover your Life Direction Archetype and 3 career paths that actually fit who you are.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500&family=Syne:wght@600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="pathlit.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">PATHLIT</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="archetypes.html" class="nav-link">Archetypes</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="clarity-pro.html" class="nav-link">Pricing</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html" class="mobile-link">Home</a>
+            <a href="archetypes.html" class="mobile-link">Archetypes</a>
+            <a href="about.html" class="mobile-link">About</a>
+            <a href="clarity-pro.html" class="mobile-link">Pricing</a>
+        </div>
+    </nav>
+
+    <!-- Quiz Container -->
+    <section class="quiz-section" id="quizSection">
+        <div class="gradient-blob blob-1"></div>
+        <div class="gradient-blob blob-2"></div>
+
+        <!-- Start Screen -->
+        <div class="quiz-start" id="quizStart">
+            <div class="container-narrow">
+                <div class="hero-tags" style="justify-content:center;">
+                    <span class="tag"># 40 questions</span>
+                    <span class="tag"># 8 minutes</span>
+                    <span class="tag"># science-backed</span>
+                </div>
+                <h1 class="quiz-start-title">Discover Your<br>Life Direction</h1>
+                <p class="quiz-start-sub">This isn't another personality label. Pathlit maps your personality, interests, values, and strengths into one integrated blueprint — then matches you to career paths that actually fit.</p>
+
+                <div class="quiz-info-cards">
+                    <div class="glass-panel quiz-info-card">
+                        <div class="quiz-info-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                        </div>
+                        <h3>8 Minutes</h3>
+                        <p>One question per screen. Go at your own pace.</p>
+                    </div>
+                    <div class="glass-panel quiz-info-card">
+                        <div class="quiz-info-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                        </div>
+                        <h3>No Wrong Answers</h3>
+                        <p>Every answer reveals something valuable about you.</p>
+                    </div>
+                    <div class="glass-panel quiz-info-card">
+                        <div class="quiz-info-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                        </div>
+                        <h3>4 Dimensions</h3>
+                        <p>Personality, interests, values, and strengths — combined.</p>
+                    </div>
+                </div>
+
+                <button class="btn btn-glow btn-lg" id="startQuizBtn">Let's Go</button>
+                <p class="quiz-start-note">Free. No email required to see your results.</p>
+            </div>
+        </div>
+
+        <!-- Active Quiz -->
+        <div class="quiz-active" id="quizActive" style="display:none;">
+            <div class="quiz-progress-bar">
+                <div class="quiz-progress-fill" id="progressFill"></div>
+            </div>
+            <div class="quiz-header">
+                <span class="quiz-section-label" id="sectionLabel">Section A: Who You Are</span>
+                <span class="quiz-counter" id="questionCounter">1 / 40</span>
+            </div>
+
+            <div class="container-narrow">
+                <div class="quiz-question-wrap glass-panel" id="questionWrap">
+                    <p class="quiz-question-text" id="questionText"></p>
+                    <div class="quiz-options" id="quizOptions"></div>
+                </div>
+                <div class="quiz-nav">
+                    <button class="btn quiz-back-btn" id="backBtn" style="display:none;">Back</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calculating Screen -->
+        <div class="quiz-calculating" id="quizCalculating" style="display:none;">
+            <div class="container-narrow" style="text-align:center;">
+                <div class="calc-spinner"></div>
+                <h2>Mapping your direction...</h2>
+                <p class="calc-sub">Analysing 4 dimensions across 40 responses</p>
+                <div class="calc-steps" id="calcSteps">
+                    <div class="calc-step" data-step="1">Mapping personality traits...</div>
+                    <div class="calc-step" data-step="2">Identifying career interests...</div>
+                    <div class="calc-step" data-step="3">Aligning your values...</div>
+                    <div class="calc-step" data-step="4">Finding your strengths...</div>
+                    <div class="calc-step" data-step="5">Assigning your archetype...</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section (hidden until quiz complete) -->
+    <section class="quiz-results" id="quizResults" style="display:none;">
+        <div class="gradient-blob blob-1"></div>
+        <div class="gradient-blob blob-3"></div>
+
+        <div class="container-narrow">
+            <div class="result-card glass-panel" id="resultCard">
+                <div class="result-badge" id="resultBadge">Your Life Direction Archetype</div>
+                <div class="result-emoji" id="resultEmoji"></div>
+                <h1 class="result-archetype-name" id="resultName"></h1>
+                <p class="result-tagline" id="resultTagline"></p>
+                <p class="result-description" id="resultDescription"></p>
+
+                <div class="result-strengths" id="resultStrengths">
+                    <h3>Your Top Strengths</h3>
+                    <div class="result-strength-tags" id="strengthTags"></div>
+                </div>
+
+                <div class="result-rarity" id="resultRarity"></div>
+
+                <div class="result-career-hint">
+                    <h3>Career Hint</h3>
+                    <p id="careerHint"></p>
+                </div>
+            </div>
+
+            <div class="result-cta-section">
+                <div class="glass-panel result-upgrade-card">
+                    <div class="upgrade-label">Unlock Your Full Map</div>
+                    <h2>Clarity Pro Report</h2>
+                    <p>15-page personalised PDF with your complete personality deep-dive, 3 specific career paths, and a 30-day action plan.</p>
+                    <ul class="upgrade-features">
+                        <li>Full Big Five personality profile with percentile bars</li>
+                        <li>Top 5 strengths ranked and explained</li>
+                        <li>Values alignment + conflict analysis</li>
+                        <li>3 career paths (Primary, Secondary, Unexpected)</li>
+                        <li>30-day action plan with weekly steps</li>
+                        <li>Shareable summary card for LinkedIn</li>
+                    </ul>
+                    <a href="clarity-pro.html#buy" class="btn btn-glow btn-lg btn-full">Get Your Full Report — $9.99</a>
+                    <p class="upgrade-note">30-day money-back guarantee. Instant PDF delivery.</p>
+                </div>
+            </div>
+
+            <div class="result-share">
+                <h3>Share Your Archetype</h3>
+                <div class="share-buttons">
+                    <button class="btn share-btn" onclick="shareResult('twitter')">Share on X</button>
+                    <button class="btn share-btn" onclick="shareResult('linkedin')">Share on LinkedIn</button>
+                    <button class="btn share-btn" onclick="shareResult('copy')">Copy Link</button>
+                </div>
+            </div>
+
+            <div class="result-explore">
+                <a href="archetypes.html" class="btn btn-primary">Explore All 12 Archetypes</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">PATHLIT</div>
+                    <p class="footer-tagline">Your path, lit.</p>
+                    <p class="footer-email">hello@pathlit.app</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="archetypes.html">Archetypes</a>
+                    <a href="about.html">About</a>
+                    <a href="clarity-pro.html">Pricing</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Social</h4>
+                    <div class="footer-social">
+                        <a href="#" aria-label="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
+                        <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                        <a href="#" aria-label="Twitter/X"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Pathlit. This is a self-discovery tool, not a clinical instrument.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="pathlit.js"></script>
+</body>
+</html>
