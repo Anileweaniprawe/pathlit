@@ -37,15 +37,7 @@ router.post('/create-checkout-session', async (req, res) => {
             payment_method_types: ['card'],
             customer_email: email,
             line_items: [{
-                price_data: {
-                    currency: 'usd',
-                    product_data: {
-                        name: 'Pathlit Clarity Pro Report',
-                        description: '15-page personalised career blueprint with 3 career paths, strengths deep-dive, values map, and 30-day action plan.',
-                        images: ['https://pathlit.app/og-image.png']
-                    },
-                    unit_amount: 999 // $9.99 in cents
-                },
+                price: process.env.STRIPE_PRICE_ID || 'price_1TBiHb08mkVN4sZul0RDlLVB',
                 quantity: 1
             }],
             mode: 'payment',
