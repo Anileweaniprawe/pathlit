@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { saveQuizResult, getQuizResult } = require('../services/storage');
+const { saveQuizResult, getQuizResult, getReportBuffer } = require('../services/storage');
+const { generateReport } = require('../services/report');
 
 // POST /api/quiz-results — save quiz scores after completion
 router.post('/quiz-results', (req, res) => {
@@ -43,6 +44,40 @@ router.get('/quiz-results/:id', (req, res) => {
     } catch (err) {
         console.error('[quiz] Error:', err.message);
         res.status(500).json({ error: 'Failed to retrieve quiz results' });
+    }
+});
+
+// GET /api/report/:id — download PDF report (paid users only)
+router.get('/report/:id', async (req, res) => {
+    try {
+        const result = getQuizResult(req.params.id);
+        if (!result) {
+            return res.status(404).json({ error: 'Quiz result not found' });
+        }
+
+        if (!result.paid) {
+            return res.status(403).json({ error: 'Report not purchased. Complete payment first.' });
+        }
+
+        // Check if we already have a cached PDF
+        let pdfBuffer = getReportBuffer(req.params.id);
+
+        if (!pdfBuffer) {
+            // Generate fresh PDF
+            const report = await generateReport({
+                quizResult: result,
+                email: result.email || 'Pathlit User'
+            });
+            pdfBuffer = report.pdfBuffer;
+        }
+
+        res.setHeader('Content-Type', 'application/pdf');
+        res.setHeader('Content-Disposition', `attachment; filename="Pathlit-Clarity-Pro-Report.pdf"`);
+        res.send(pdfBuffer);
+
+    } catch (err) {
+        console.error('[report] Download error:', err.message);
+        res.status(500).json({ error: 'Failed to generate report' });
     }
 });
 

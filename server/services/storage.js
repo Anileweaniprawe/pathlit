@@ -101,11 +101,35 @@ function getOrderBySession(stripeSessionId) {
     return Object.values(data).find(o => o.stripeSessionId === stripeSessionId) || null;
 }
 
+// ========== Report PDF Cache ==========
+// In-memory cache for generated PDFs (per quiz ID)
+const reportCache = {};
+
+function saveReportBuffer(quizId, buffer) {
+    reportCache[quizId] = buffer;
+}
+
+function getReportBuffer(quizId) {
+    return reportCache[quizId] || null;
+}
+
+// Mark quiz with email from checkout
+function setQuizEmail(quizId, email) {
+    const data = readJSON(QUIZ_FILE);
+    if (data[quizId]) {
+        data[quizId].email = email;
+        writeJSON(QUIZ_FILE, data);
+    }
+}
+
 module.exports = {
     saveQuizResult,
     getQuizResult,
     markQuizPaid,
+    setQuizEmail,
     saveOrder,
     updateOrderStatus,
-    getOrderBySession
+    getOrderBySession,
+    saveReportBuffer,
+    getReportBuffer
 };

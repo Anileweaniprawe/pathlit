@@ -43,7 +43,7 @@
                     <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
                 </div>
                 <h1>Payment Successful!</h1>
-                <p class="success-sub">Your Clarity Pro report is being generated.</p>
+                <p class="success-sub">Your Clarity Pro report is ready.</p>
 
                 <div class="success-details glass-panel">
                     <div class="success-row">
@@ -56,8 +56,17 @@
                     </div>
                     <div class="success-row">
                         <span>Delivery</span>
-                        <strong>PDF via email (instant)</strong>
+                        <strong>15-page personalised PDF</strong>
                     </div>
+                </div>
+
+                <!-- Download button -->
+                <div class="success-download" id="downloadSection">
+                    <a href="#" id="downloadBtn" class="btn btn-glow btn-lg btn-full" onclick="downloadReport(event)">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:middle;margin-right:8px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        Download Your Report (PDF)
+                    </a>
+                    <p id="downloadStatus" style="color:var(--muted);font-size:0.85rem;margin-top:0.5rem;text-align:center;"></p>
                 </div>
 
                 <div class="success-next">
@@ -65,11 +74,11 @@
                     <div class="success-steps">
                         <div class="success-step">
                             <div class="success-step-num">1</div>
-                            <p>Check your email — your 15-page Clarity Pro report will arrive within 2 minutes.</p>
+                            <p>Download your 15-page Clarity Pro report above. Grab a coffee.</p>
                         </div>
                         <div class="success-step">
                             <div class="success-step-num">2</div>
-                            <p>Open the PDF and block 30 minutes to read it properly. Grab a coffee.</p>
+                            <p>Block 30 minutes to read it properly. Highlight what resonates most.</p>
                         </div>
                         <div class="success-step">
                             <div class="success-step-num">3</div>
@@ -125,5 +134,52 @@
     </footer>
 
     <script src="pathlit.js"></script>
+    <script>
+    function downloadReport(e) {
+        e.preventDefault();
+        const quizId = localStorage.getItem('pathlit_quiz_id');
+        const status = document.getElementById('downloadStatus');
+
+        if (!quizId) {
+            status.textContent = 'No quiz found. Please take the quiz first, then purchase.';
+            return;
+        }
+
+        status.textContent = 'Generating your report...';
+        const btn = document.getElementById('downloadBtn');
+        btn.style.pointerEvents = 'none';
+        btn.style.opacity = '0.6';
+
+        fetch(`/api/report/${quizId}`)
+            .then(response => {
+                if (response.status === 403) {
+                    status.textContent = 'Payment still processing. Please wait a moment and try again.';
+                    return null;
+                }
+                if (!response.ok) throw new Error('Failed to generate report');
+                return response.blob();
+            })
+            .then(blob => {
+                if (!blob) return;
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'Pathlit-Clarity-Pro-Report.pdf';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                status.textContent = 'Downloaded! Check your downloads folder.';
+            })
+            .catch(err => {
+                console.error(err);
+                status.textContent = 'Download failed. Please try again or contact hello@pathlit.app';
+            })
+            .finally(() => {
+                btn.style.pointerEvents = '';
+                btn.style.opacity = '';
+            });
+    }
+    </script>
 </body>
 </html>

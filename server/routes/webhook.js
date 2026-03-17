@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const { updateOrderStatus, getOrderBySession } = require('../services/storage');
-const { markQuizPaid, getQuizResult } = require('../services/storage');
+const { markQuizPaid, getQuizResult, setQuizEmail, saveReportBuffer } = require('../services/storage');
 const { generateReport } = require('../services/report');
 
 // IMPORTANT: This route uses express.raw() for Stripe signature verification.
@@ -42,15 +42,26 @@ router.post('/', express.raw({ type: 'application/json' }), async (req, res) => 
         // Update order status
         updateOrderStatus(session.id, 'completed');
 
-        // Mark quiz as paid
+        // Mark quiz as paid and generate report
         if (quizId) {
             markQuizPaid(quizId);
+            setQuizEmail(quizId, email);
 
-            // Generate and send report
             const quizResult = getQuizResult(quizId);
             if (quizResult) {
                 try {
-                    await generateReport({ quizResult, email });
+                    console.log(`[webhook] Generating PDF report for ${email}...`);
+                    const report = await generateReport({ quizResult, email });
+
+                    // Cache the PDF buffer for download
+                    if (report.pdfBuffer) {
+                        saveReportBuffer(quizId, report.pdfBuffer);
+                        console.log(`[webhook] PDF cached (${report.pdfBuffer.length} bytes, ${report.pageCount} pages)`);
+                    }
+
+                    // TODO: Send email with PDF attachment via SendGrid
+                    // await sendReportEmail({ email, pdfBuffer: report.pdfBuffer });
+
                 } catch (err) {
                     console.error('[webhook] Report generation failed:', err.message);
                 }
