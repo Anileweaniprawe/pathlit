@@ -41,9 +41,12 @@ app.use((err, req, res, next) => {
     res.status(500).json({ error: 'Internal server error' });
 });
 
-app.listen(PORT, () => {
-    console.log(`\n  🔥 Pathlit server running at http://localhost:${PORT}\n`);
-    console.log(`  📝 Quiz API:     POST /api/quiz-results`);
-    console.log(`  💳 Checkout:     POST /api/create-checkout-session`);
-    console.log(`  🔔 Webhook:      POST /api/webhook\n`);
-});
+// Export for Vercel serverless
+module.exports = app;
+
+// Local dev
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`\n  🔥 Pathlit server running at http://localhost:${PORT}\n`);
+    });
+}
