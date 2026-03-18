@@ -396,7 +396,7 @@
         if (stripe) return;
         try {
             // Stripe.js loads from the <script> tag in <head>
-            stripe = Stripe(window.STRIPE_PK || 'pk_test_YOUR_KEY_HERE');
+            stripe = Stripe('pk_live_51TBiF1077dqnAiarBuvFXWJqbLVc9esRemSZSHoEuPmFVI0SYlf466U9roYbql7LohQUpC8bRg1H3hD5Fpal1Jh800vRbUcQyS');
         } catch (e) {
             console.log('Stripe.js not loaded — checkout will use server-side redirect.');
         }

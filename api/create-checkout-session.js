@@ -25,7 +25,14 @@ module.exports = async (req, res) => {
             payment_method_types: ['card'],
             customer_email: email,
             line_items: [{
-                price: process.env.STRIPE_PRICE_ID || 'price_1TBiHb08mkVN4sZul0RDlLVB',
+                price_data: {
+                    currency: 'usd',
+                    unit_amount: 999,
+                    product_data: {
+                        name: 'Pathlit Clarity Pro Report',
+                        description: '15-page personalised career blueprint with 3 career paths, strengths deep-dive, values map, and 30-day action plan.',
+                    },
+                },
                 quantity: 1
             }],
             mode: 'payment',
