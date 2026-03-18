@@ -417,18 +417,27 @@ h3 { font-size: 1.25rem; letter-spacing: -0.3px; }
     position: relative;
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: calc(var(--nav-height) + 40px) 24px 80px;
     overflow: hidden;
 }
 
 .hero-content {
-    max-width: 1120px;
-    margin: 0 auto;
     position: relative;
     z-index: 1;
     width: 100%;
-    max-width: 640px;
+    max-width: 560px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-sub {
+    max-width: 480px;
+    text-align: center;
 }
 
 .hero-headline {
@@ -487,16 +496,61 @@ h3 { font-size: 1.25rem; letter-spacing: -0.3px; }
     color: var(--amber-1);
 }
 
-/* Floating glass cards */
-.floating-cards {
-    position: absolute;
-    right: 80px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1;
+/* Hero result preview cards */
+.hero-result-preview {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
+    margin-top: 40px;
+    width: 100%;
+    max-width: 320px;
+    position: relative;
+    z-index: 1;
+}
+
+.result-card-preview {
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.9);
+    border-radius: 20px;
+    padding: 20px 28px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-align: left;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.result-card-preview:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+.result-card-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--gray-400);
+    font-family: var(--font-mono);
+}
+
+.result-card-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--forest-dark);
+    font-family: var(--font-display);
+}
+
+.result-card-accent {
+    color: var(--orange-1);
+    font-size: 2rem;
+}
+
+/* Floating glass cards (kept for other uses) */
+.floating-cards {
+    display: none;
 }
 
 .glass-card {
@@ -786,6 +840,11 @@ h3 { font-size: 1.25rem; letter-spacing: -0.3px; }
     grid-template-columns: 280px 1fr;
     gap: 56px;
     align-items: start;
+}
+
+.founder-grid-text-only {
+    grid-template-columns: 1fr;
+    max-width: 680px;
 }
 
 .photo-placeholder {
